@@ -1,3 +1,31 @@
 body {
     background: black;
 }
+
+#arena {
+    background: purple;
+    height: 600px;
+    width: 1600px;
+    position: relative;
+}
+
+#player1 {
+    height: 25px;
+    width: 25px;
+    bottom: 180px;
+    left: 200px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+    transform: rotate(0deg)
+}
+
+#player1Weapon {
+    height: 5px;
+    width: 40px;
+    bottom: 0px;
+    left: 20px;
+    position: absolute;
+    background-color: white;
+}
