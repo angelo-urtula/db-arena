@@ -1,5 +1,22 @@
 let player1Angle = 0
 
+let fight = {
+    "player1": {
+        "tag": document.getElementById('player1'),
+        "x": "200",
+        "y": "180",
+        "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "swing": false,
+        }
+
+    },
+    "player2": {}
+}
+
 document.addEventListener('keydown', function(e) {
     ;
     let player1Weapon = document.getElementById("player1Weapon");
