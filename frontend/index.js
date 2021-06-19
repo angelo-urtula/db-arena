@@ -138,18 +138,20 @@ function loop(){
     fight.player2.tag.style.bottom = fight.player2.y+'px'
     fight.player2.tag.style.left = fight.player2.x+'px'
     window.requestAnimationFrame(loop)
+    detect()
 }
 window.requestAnimationFrame(loop)
 
 function detect() {
-let dx = parseInt(fight.player1.tag.style.left, 10) - parseInt(fight.player2.tag.style.left, 10);
-let dy = parseInt(fight.player1.tag.style.bottom, 10) - parseInt(fight.player2.tag.style.bottom, 10);
+let dx = parseInt(getComputedStyle(fight.player1.tag).left) - parseInt(getComputedStyle(fight.player2.tag).left);
+let dy = parseInt(getComputedStyle(fight.player1.tag).bottom) - parseInt(getComputedStyle(fight.player2.tag).bottom);
 let distance = Math.sqrt(dx * dx + dy * dy);
-let radii = 24;
-if (distance < radii)   {
-    console.log("detected")
-}
-}
+let radiiSum = 24
 
-let temp = document.getElementById('player1').style.left
-console.log(Number.parseInt(fight.player1.tag.style.left, 10)
+
+if (distance < radiiSum)   {
+    document.getElementById("player1").style.left = "";
+    document.getElementById("player1Weapon").style.left = "";
+    document.getElementById("player2").style.left = "";
+    document.getElementById("player2Weapon").style.left = "";
+}}
