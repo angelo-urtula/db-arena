@@ -10,8 +10,8 @@ body {
 }
 
 #player1 {
-    height: 25px;
-    width: 25px;
+    height: 24px;
+    width: 24px;
     bottom: 180px;
     left: 200px;
     background-color: blue;
@@ -19,16 +19,17 @@ body {
     position: absolute;
     display: inline-block;
     transform: rotate(0deg);
-    transition: transform 0.7s linear;
+    transition: transform 0.8s linear;
 }
 
 #player1Weapon {
-    height: 5px;
-    width: 40px;
-    bottom: 0px;
-    left: 20px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    top: -20px;
+    left: 8px;
     position: absolute;
     background-color: white;
     transform: rotate(0deg);
-    transition: transform 0.7s linear;
+    transition: transform 0.8s linear;
 }
