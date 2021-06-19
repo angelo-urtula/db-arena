@@ -41,6 +41,9 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = true
     }
+    if (e.key === " "){
+        fight.player1.controls.swing = true
+    }
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = true
     }
@@ -53,8 +56,6 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = true
     }
-    if (e.key === " "){
-        fight.player1.controls.swing = true}
     }
 );
 
@@ -71,6 +72,9 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = false
     }
+    if (e.key === " "){
+        fight.player1.controls.swing = false
+    }
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = false
     }
@@ -83,9 +87,6 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = false
     }
-    if (e.key === " "){
-        fight.player1.controls.swing = false
-        }
     }
 );
 
