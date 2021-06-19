@@ -24,19 +24,72 @@ let fight = {
             "left": false,
             "right": false,
             "swing": false
+        }
     }
-}
 }
 
 document.addEventListener('keydown', function(e) {
-    
+    if (e.key === "w"){
+        fight.player1.controls.up = true
+    }
+    if (e.key === "s"){
+        fight.player1.controls.down = true
+    }
+    if (e.key === "a"){
+        fight.player1.controls.left = true
+    }
+    if (e.key === "d"){
+        fight.player1.controls.right = true
+    }
+    if (e.key === "ArrowUp"){
+        fight.player2.controls.up = true
+    }
+    if (e.key === "ArrowDown"){
+        fight.player2.controls.down = true
+    }
+    if (e.key === "ArrowLeft"){
+        fight.player2.controls.left = true
+    }
+    if (e.key === "ArrowRight"){
+        fight.player2.controls.right = true
+    }
     let player1Weapon = document.getElementById("player1Weapon");
     if (e.key === " "){
         player1Angle += 10
 	    player1.style.transform = `rotate(${player1Angle}deg)`;
         player1Weapon.style.transform = `rotate(-${player1Angle}deg)`}
-    if(e.key === "ArrowRight"){
-        movePlayer1Right()
-        }
+    }
+);
+
+document.addEventListener('keyup', function(e) {
+    if (e.key === "w"){
+        fight.player1.controls.up = false
+    }
+    if (e.key === "s"){
+        fight.player1.controls.down = false
+    }
+    if (e.key === "a"){
+        fight.player1.controls.left = false
+    }
+    if (e.key === "d"){
+        fight.player1.controls.right = false
+    }
+    if (e.key === "ArrowUp"){
+        fight.player2.controls.up = false
+    }
+    if (e.key === "ArrowDown"){
+        fight.player2.controls.down = false
+    }
+    if (e.key === "ArrowLeft"){
+        fight.player2.controls.left = false
+    }
+    if (e.key === "ArrowRight"){
+        fight.player2.controls.right = false
+    }
+    let player1Weapon = document.getElementById("player1Weapon");
+    if (e.key === " "){
+        player1Angle += 10
+	    player1.style.transform = `rotate(${player1Angle}deg)`;
+        player1Weapon.style.transform = `rotate(-${player1Angle}deg)`}
     }
 );
