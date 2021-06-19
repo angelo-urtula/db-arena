@@ -3,6 +3,8 @@ let player1Angle = 0
 let fight = {
     "player1": {
         "tag": document.getElementById('player1'),
+        "weapon": document.getElementById('player1Weapon'),
+        "angle": 0,
         "x": 200,
         "y": 180,
         "controls": {
@@ -96,7 +98,7 @@ document.addEventListener('keyup', function(e) {
 
 function loop(){
     if (fight.player1.controls.up == true){
-        fight.player1.y = Math.max(fight.player1.y - 10, 0)
+        fight.player1.y = Math.min(fight.player1.y + 5, 550)
     }
 
     fight.player1.tag.style.bottom = fight.player1.y+'px'
