@@ -16,6 +16,8 @@ let fight = {
     },
     "player2": {
         "tag": document.getElementById('player2'),
+        "weapon": document.getElementById('player2Weapon'),
+        "angle": 0,
         "x": 200,
         "y": 1400,
         "controls": {
@@ -56,6 +58,9 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = true
     }
+    if (e.key === "Enter"){
+        fight.player2.controls.swing = true
+    }
     }
 );
 
@@ -87,6 +92,9 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = false
     }
+    if (e.key === "Enter"){
+        fight.player2.controls.swing = false
+    }
     }
 );
 
@@ -99,6 +107,10 @@ function loop(){
 	    fight.player1.tag.style.transform = `rotate(${fight.player1.angle}deg)`;
         fight.player1.weapon.style.transform = `rotate(-${fight.player1.angle}deg)`
     }
+    if (fight.player2.controls.swing == true ){
+        fight.player2.angle -= 1
+	    fight.player2.tag.style.transform = `rotate(${fight.player2.angle}deg)`;
+        fight.player2.weapon.style.transform = `rotate(-${fight.player2.angle}deg)`}
 
     fight.player1.tag.style.bottom = fight.player1.y+'px'
     window.requestAnimationFrame(loop)
