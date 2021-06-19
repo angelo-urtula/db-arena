@@ -1,5 +1,3 @@
-let player1Angle = 0
-
 let fight = {
     "player1": {
         "tag": document.getElementById('player1'),
