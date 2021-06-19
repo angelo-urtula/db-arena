@@ -26,9 +26,10 @@ let fight = {
             "swing": false
     }
 }
+}
 
 document.addEventListener('keydown', function(e) {
-    ;
+    
     let player1Weapon = document.getElementById("player1Weapon");
     
     if (e.key === " "){
