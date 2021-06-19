@@ -140,3 +140,16 @@ function loop(){
     window.requestAnimationFrame(loop)
 }
 window.requestAnimationFrame(loop)
+
+function detect() {
+let dx = parseInt(fight.player1.tag.style.left, 10) - parseInt(fight.player2.tag.style.left, 10);
+let dy = parseInt(fight.player1.tag.style.bottom, 10) - parseInt(fight.player2.tag.style.bottom, 10);
+let distance = Math.sqrt(dx * dx + dy * dy);
+let radii = 24;
+if (distance < radii)   {
+    console.log("detected")
+}
+}
+
+let temp = document.getElementById('player1').style.left
+console.log(Number.parseInt(fight.player1.tag.style.left, 10)
