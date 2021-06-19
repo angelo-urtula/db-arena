@@ -96,7 +96,7 @@ function loop(){
         fight.player1.y = Math.min(fight.player1.y + 5, 550)
     }
     if (fight.player1.controls.swing == true ){
-        fight.player1.angle += 10
+        fight.player1.angle += 1
 	    fight.player1.tag.style.transform = `rotate(${fight.player1.angle}deg)`;
         fight.player1.weapon.style.transform = `rotate(-${fight.player1.angle}deg)`
     }
