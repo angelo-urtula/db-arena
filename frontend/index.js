@@ -102,6 +102,15 @@ function loop(){
     if (fight.player1.controls.up == true){
         fight.player1.y = Math.min(fight.player1.y + 5, 550)
     }
+    if (fight.player1.controls.down == true){
+        fight.player1.y = Math.max(fight.player1.y - 5, 20)
+    }
+    if (fight.player1.controls.left == true){
+        fight.player1.x = Math.max(fight.player1.x - 5, 20)
+    }
+    if (fight.player1.controls.right == true){
+        fight.player1.x = Math.min(fight.player1.x + 5, 1555)
+    }
     if (fight.player1.controls.swing == true ){
         fight.player1.angle += 1
 	    fight.player1.tag.style.transform = `rotate(${fight.player1.angle}deg)`;
@@ -113,6 +122,7 @@ function loop(){
         fight.player2.weapon.style.transform = `rotate(-${fight.player2.angle}deg)`}
 
     fight.player1.tag.style.bottom = fight.player1.y+'px'
+    fight.player1.tag.style.left = fight.player1.x+'px'
     window.requestAnimationFrame(loop)
 }
 window.requestAnimationFrame(loop)
