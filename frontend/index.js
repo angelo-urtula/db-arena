@@ -18,8 +18,8 @@ let fight = {
         "tag": document.getElementById('player2'),
         "weapon": document.getElementById('player2Weapon'),
         "angle": 0,
-        "x": 200,
-        "y": 1400,
+        "x": 1400,
+        "y": 180,
         "controls": {
             "up": false,
             "down": false,
@@ -100,21 +100,33 @@ document.addEventListener('keyup', function(e) {
 
 function loop(){
     if (fight.player1.controls.up == true){
-        fight.player1.y = Math.min(fight.player1.y + 5, 550)
+        fight.player1.y = Math.min(fight.player1.y + 3, 550)
     }
     if (fight.player1.controls.down == true){
-        fight.player1.y = Math.max(fight.player1.y - 5, 20)
+        fight.player1.y = Math.max(fight.player1.y - 3, 20)
     }
     if (fight.player1.controls.left == true){
-        fight.player1.x = Math.max(fight.player1.x - 5, 20)
+        fight.player1.x = Math.max(fight.player1.x - 3, 20)
     }
     if (fight.player1.controls.right == true){
-        fight.player1.x = Math.min(fight.player1.x + 5, 1555)
+        fight.player1.x = Math.min(fight.player1.x + 3, 1555)
     }
     if (fight.player1.controls.swing == true ){
         fight.player1.angle += 1
 	    fight.player1.tag.style.transform = `rotate(${fight.player1.angle}deg)`;
         fight.player1.weapon.style.transform = `rotate(-${fight.player1.angle}deg)`
+    }
+    if (fight.player2.controls.up == true){
+        fight.player2.y = Math.min(fight.player2.y + 3, 550)
+    }
+    if (fight.player2.controls.down == true){
+        fight.player2.y = Math.max(fight.player2.y - 3, 20)
+    }
+    if (fight.player2.controls.left == true){
+        fight.player2.x = Math.max(fight.player2.x - 3, 20)
+    }
+    if (fight.player2.controls.right == true){
+        fight.player2.x = Math.min(fight.player2.x + 3, 1555)
     }
     if (fight.player2.controls.swing == true ){
         fight.player2.angle -= 1
@@ -123,6 +135,8 @@ function loop(){
 
     fight.player1.tag.style.bottom = fight.player1.y+'px'
     fight.player1.tag.style.left = fight.player1.x+'px'
+    fight.player2.tag.style.bottom = fight.player2.y+'px'
+    fight.player2.tag.style.left = fight.player2.x+'px'
     window.requestAnimationFrame(loop)
 }
 window.requestAnimationFrame(loop)
