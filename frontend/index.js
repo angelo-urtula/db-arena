@@ -3,8 +3,8 @@ let player1Angle = 0
 let fight = {
     "player1": {
         "tag": document.getElementById('player1'),
-        "x": "200",
-        "y": "180",
+        "x": 200,
+        "y": 180,
         "controls": {
             "up": false,
             "down": false,
@@ -16,8 +16,8 @@ let fight = {
     },
     "player2": {
         "tag": document.getElementById('player2'),
-        "x": "200",
-        "y": "1400",
+        "x": 200,
+        "y": 1400,
         "controls": {
             "up": false,
             "down": false,
@@ -93,3 +93,13 @@ document.addEventListener('keyup', function(e) {
         player1Weapon.style.transform = `rotate(-${player1Angle}deg)`}
     }
 );
+
+function loop(){
+    if (fight.player1.controls.up == true){
+        fight.player1.y = Math.max(fight.player1.y - 10, 0)
+    }
+
+    fight.player1.tag.style.bottom = fight.player1.y+'px'
+    window.requestAnimationFrame(loop)
+}
+window.requestAnimationFrame(loop)
