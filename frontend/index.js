@@ -10,11 +10,21 @@ let fight = {
             "down": false,
             "left": false,
             "right": false,
-            "swing": false,
+            "swing": false
         }
 
     },
-    "player2": {}
+    "player2": {
+        "tag": document.getElementById('player2'),
+        "x": "200",
+        "y": "1400",
+        "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "swing": false
+    }
 }
 
 document.addEventListener('keydown', function(e) {
