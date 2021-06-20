@@ -36,6 +36,16 @@ function fetchKills() {
     .then(json => renderKills(json))
 }
 
+function renderKills(allKills){
+    const killFeed = document.querySelector('#killfeed');
+    for (const kill of allKills){
+        let entry = document.createElement('p');
+        entry.className = "entry";
+        entry.textContent = kill.message;
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 }
 
