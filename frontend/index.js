@@ -31,7 +31,7 @@ let fight = {
 }
 
 function fetchKills() {
-    fetch("http://localhost:3000/toys")
+    fetch("http://localhost:3000/kills")
     .then(resp => resp.json())
     .then(json => renderKills(json))
 }
