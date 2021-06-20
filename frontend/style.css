@@ -63,12 +63,14 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    background-color: blue
+    background-color: blue;
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #kills-and-leaderboard > div {
     background-color: #89cff0;
-    width: 500px;
+    width: 600px;
     margin: 10px;
     text-align: center;
     line-height: 300px;
