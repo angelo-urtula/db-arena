@@ -30,24 +30,43 @@ let fight = {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetchKills();
+    fetchGladiators();
+})
+
 function fetchKills() {
     fetch("http://localhost:3000/kills")
     .then(resp => resp.json())
-    .then(json => renderKills(json))
+    .then(data => console.log(data))
 }
 
 function renderKills(allKills){
     const killFeed = document.querySelector('#killfeed');
-    for (const kill of allKills){
-        let entry = document.createElement('p');
-        entry.className = "entry";
-        entry.textContent = kill.message;
+    const arrayKills = allKills
+    for (const kill of arrayKills){
+        const oneKill = document.createElement('li');
+        oneKill.className = "oneKill";
+        oneKill.innerHTML = `${kill.gladiator.name} shouts ${kill.message}!`;
+        killFeed.appendChild(oneKill)
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
+function fetchGladiators() {
+    fetch("http://localhost:3000/gladiators")
+    .then(resp => resp.json())
+    .then(json => console.log(json))
 }
+
+function renderGladiators(allGladiators){
+    const leaderboards = document.querySelector('#leaderboards');
+    for (const glad of allGladiators){
+    const oneGlad = document.createElement('li');
+    oneGlad.className = "oneGlad";
+    oneGlad.innerHTML = `${glad.name}!`;
+    leaderboards.appendChild(oneGlad)
+}}
+
 
 document.addEventListener('keydown', function(e) {
     if (e.key === "w"){
@@ -157,7 +176,6 @@ function loop(){
     fight.player2.tag.style.bottom = fight.player2.y+'px'
     fight.player2.tag.style.left = fight.player2.x+'px'
     window.requestAnimationFrame(loop)
-    detect()
 }
 window.requestAnimationFrame(loop)
 
@@ -170,7 +188,7 @@ let radiiSum = 24
 
 if (distance < radiiSum)   {
     document.getElementById("player1").style.left = "";
-    document.getElementById("player1Weapon").style.left = "";
+    document.getElementById("player1").style.bottom = "";
     document.getElementById("player2").style.left = "";
-    document.getElementById("player2Weapon").style.left = "";
+    document.getElementById("player2").style.bottom = "";
 }}
