@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gladiator: one
+  message: MyString
+
+two:
+  gladiator: two
+  message: MyString

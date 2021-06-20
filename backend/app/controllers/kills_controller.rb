@@ -1,0 +1,2 @@
+class KillsController < ApplicationController
+end
