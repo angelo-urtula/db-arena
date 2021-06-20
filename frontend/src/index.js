@@ -36,6 +36,13 @@ function renderGladiators(allGladiators){
 let arena = document.getElementById("arena")
 arena.style.display = "none"
 let fighting = false
+let welcome = document.getElementById("welcome-screen")
+let gladForm = document.getElementById("gladiator")
+
+document.getElementById("create-gladiator").addEventListener("click", function(e){
+    welcome.style.display = "none"
+    gladForm.style.display = "block"
+})
 
 const createGlad = document.querySelector(".submit")
 createGlad.addEventListener("click", function(e){
