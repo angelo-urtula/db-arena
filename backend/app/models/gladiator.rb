@@ -1,4 +1,4 @@
 class Gladiator < ApplicationRecord
-    has_many :kills, dependent: :delete_all
-    has_many :souls, dependent: :delete_all
+    has_many :kills
+    has_many :souls
 end
