@@ -58,3 +58,20 @@ body {
     transform: rotate(0deg);
     transition: transform 0.8s linear;
 }
+
+#kills-and-leaderboard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: green
+}
+
+#kills-and-leaderboard > div {
+    background-color: white;
+    width: 500px;
+    margin: 10px;
+    text-align: center;
+    line-height: 300px;
+    font-size: 25px;
+    object-fit: cover;
+}
