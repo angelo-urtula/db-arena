@@ -4,7 +4,9 @@ fetchGladiators();
 function fetchKills() {
     return fetch("http://localhost:3000/kills")
     .then(resp => resp.json())
-    .then(results => renderKills(results))
+    .then(results => renderKills(results.sort(function(a,b){
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    })))
 }
 
 function renderKills(allKills){
