@@ -9,6 +9,15 @@ body {
     position: relative;
 }
 
+#welcome-screen {
+    background: black;
+    height: 600px;
+    width: 1600px;
+    position: relative;
+    color: white;
+    text-align: center
+}
+
 #player1 {
     height: 24px;
     width: 24px;
