@@ -87,3 +87,19 @@ body {
     overflow: hidden;
     overflow-x: hidden;
 }
+
+.buttons {
+    background-color: orange;
+    border: 1px solid yellow;
+    width: 120px;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    display: block;
+}
+
+#fight {
+    background: red;
+    color: yellow
+}
