@@ -89,7 +89,21 @@ body {
     font-size: 25px;
     overflow: auto;
     overflow-x: auto;
+    }
+#kills-and-leaderboard > div::-webkit-scrollbar {
+    display: block;
+    background: #89cff0;
+    }
+
+#kills-and-leaderboard > div::-webkit-scrollbar-thumb {
+    background: black;
 }
+#kills-and-leaderboard > div::-webkit-scrollbar-track-piece:start {
+    margin-top: 37px;
+}
+
+
+
 
 .buttons {
     background-color: orange;
@@ -159,16 +173,23 @@ body {
     text-align: center;
     display: block;
     border-radius: 5px;
-    margin: 5px
+    margin: 5px;
+}
+
+.oneGlad:first-of-type {
+    margin-top:40px
+}
+
+.oneKill:first-of-type {
+    margin-top:40px
 }
 
 .header {
     background-color: grey;
     border: 1px solid black;
-    width: 500px;
+    width: 533px;
     color: white;
-    font-size: 16px;
-    padding: 9px;
+    font-size: 30px;
     text-align: center;
     display: block;
     position: fixed;
