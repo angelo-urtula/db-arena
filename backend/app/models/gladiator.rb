@@ -1,0 +1,2 @@
+class Gladiator < ApplicationRecord
+end
