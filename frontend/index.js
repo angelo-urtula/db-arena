@@ -30,9 +30,12 @@ let fight = {
     }
 }
 
+let arena = document.getElementById("arena")
+arena.style.display = "none"
+let fighting = false
+
 document.addEventListener("DOMContentLoaded", () => {
-    fetchKills();
-    fetchGladiators();
+    
 })
 
 function fetchKills() {
@@ -136,6 +139,7 @@ document.addEventListener('keyup', function(e) {
     }
 );
 
+while (fighting == true) {
 function loop(){
     if (fight.player1.controls.up == true){
         fight.player1.y = Math.min(fight.player1.y + 3, 550)
@@ -176,6 +180,7 @@ function loop(){
     fight.player2.tag.style.bottom = fight.player2.y+'px'
     fight.player2.tag.style.left = fight.player2.x+'px'
     window.requestAnimationFrame(loop)
+    detect()
 }
 window.requestAnimationFrame(loop)
 
@@ -192,3 +197,4 @@ if (distance < radiiSum)   {
     document.getElementById("player2").style.left = "";
     document.getElementById("player2").style.bottom = "";
 }}
+}
