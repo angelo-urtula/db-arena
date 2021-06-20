@@ -3,7 +3,7 @@ body {
 }
 
 #arena {
-    background: #0072B2;
+    background: black;
     height: 600px;
     width: 1600px;
     position: relative;
@@ -14,7 +14,7 @@ body {
     width: 24px;
     bottom: 180px;
     left: 200px;
-    background-color: #000000;
+    background-color: white;
     border-radius: 50%;
     position: absolute;
     display: inline-block;
@@ -63,15 +63,16 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    background-color: green
+    background-color: blue
 }
 
 #kills-and-leaderboard > div {
-    background-color: white;
+    background-color: #89cff0;
     width: 500px;
     margin: 10px;
     text-align: center;
     line-height: 300px;
     font-size: 25px;
-    object-fit: cover;
+    overflow: hidden;
+    overflow-x: hidden;
 }
