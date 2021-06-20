@@ -1,5 +1,6 @@
 body {
     background: black;
+    height: 100%
 }
 
 #arena {
@@ -15,7 +16,7 @@ body {
     width: 100%;
     position: relative;
     color: white;
-    text-align: center;
+    text-align: center;    
     display: none
 }
 
@@ -71,11 +72,13 @@ body {
 
 #kills-and-leaderboard {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
     background-color: blue;
-    overflow: hidden;
-    overflow-x: hidden;
+    overflow: auto;
+    overflow-x: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 300px
 }
 
 #kills-and-leaderboard > div {
@@ -83,10 +86,9 @@ body {
     width: 600px;
     margin: 10px;
     text-align: center;
-    line-height: 300px;
     font-size: 25px;
-    overflow: hidden;
-    overflow-x: hidden;
+    overflow: auto;
+    overflow-x: auto;
 }
 
 .buttons {
@@ -132,4 +134,44 @@ body {
     background-color: blue;
     border-radius: 5px;
     color: yellow;
+}
+
+.oneKill {
+    background-color: red;
+    border: 1px solid yellow;
+    width: auto;
+    color: white;
+    font-size: 16px;
+    padding: 9px;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+    margin: 5px
+}
+
+.oneGlad {
+    background-color: green;
+    border: 1px solid yellow;
+    width: auto;
+    color: black;
+    font-size: 30px;
+    padding: 9px;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+    margin: 5px
+}
+
+.header {
+    background-color: grey;
+    border: 1px solid black;
+    width: 500px;
+    color: white;
+    font-size: 16px;
+    padding: 9px;
+    text-align: center;
+    display: block;
+    position: fixed;
+    font-family: OCR A Std, monospace;
+    font-weight: 900
 }
