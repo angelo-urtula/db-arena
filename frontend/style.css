@@ -180,23 +180,14 @@ body {
     margin: 5px;
 }
 
-.oneGlad:first-of-type {
-    margin-top:40px
-}
-
-.oneKill:first-of-type {
-    margin-top:40px
-}
-
 .header {
     background-color: grey;
     border: 1px solid black;
-    width: 533px;
     color: white;
     font-size: 30px;
     text-align: center;
     display: block;
-    position: fixed;
     font-family: OCR A Std, monospace;
-    font-weight: 900
+    font-weight: 900;
+    width: auto;
 }
