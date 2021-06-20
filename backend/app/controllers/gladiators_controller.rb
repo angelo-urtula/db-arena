@@ -1,0 +1,2 @@
+class GladiatorsController < ApplicationController
+end
