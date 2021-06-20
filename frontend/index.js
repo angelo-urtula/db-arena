@@ -30,6 +30,15 @@ let fight = {
     }
 }
 
+function fetchKills() {
+    fetch("http://localhost:3000/toys")
+    .then(resp => resp.json())
+    .then(json => renderKills(json))
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+}
+
 document.addEventListener('keydown', function(e) {
     if (e.key === "w"){
         fight.player1.controls.up = true
