@@ -1,7 +1,7 @@
 class GladiatorsController < ApplicationController
     def index
         gladiators = Gladiator.all
-        render json: gladiators
+        render json: gladiators.to_json(include: [:kills, :souls])
     end
 
     def create
