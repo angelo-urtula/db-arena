@@ -38,6 +38,25 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
+const createGlad = document.querySelector(".submit")
+createGlad.addEventListener("click", function(e){
+    e.preventDefault();
+    fetch("http://localhost:3000/gladiators", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            "name": document.querySelector('form.new-gladiator input[name="name"]').value,
+            "motto": document.querySelector('form.new-gladiator input[name="motto"]').value,
+            "reason": document.querySelector('form.new-gladiator input[name="reason"]').value,
+            "honor": document.querySelector('form.new-gladiator input[name="honor"]').value,
+        })
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))})
+
 function fetchKills() {
     fetch("http://localhost:3000/kills")
     .then(resp => resp.json())
