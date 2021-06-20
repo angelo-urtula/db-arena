@@ -36,6 +36,6 @@ ActiveRecord::Schema.define(version: 2021_06_20_004720) do
     t.index ["gladiator_id"], name: "index_souls_on_gladiator_id"
   end
 
-  add_foreign_key "kills", "gladiators"
-  add_foreign_key "souls", "gladiators"
+  add_foreign_key "kills", "gladiators", on_delete: :cascade
+  add_foreign_key "souls", "gladiators", on_delete: :cascade
 end
