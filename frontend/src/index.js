@@ -21,7 +21,9 @@ function renderKills(allKills){
 function fetchGladiators() {
     fetch("http://localhost:3000/gladiators")
     .then(resp => resp.json())
-    .then(json => renderGladiators(json))
+    .then(json => renderGladiators(json.sort(function(a,b){
+        return b.kills.length - a.kills.length
+    })))
 }
 
 function renderGladiators(allGladiators){
@@ -29,7 +31,7 @@ function renderGladiators(allGladiators){
     for (const glad of allGladiators){
     const oneGlad = document.createElement('li');
     oneGlad.className = "oneGlad";
-    oneGlad.innerHTML = `${glad.name}!`;
+    oneGlad.innerHTML = `${glad.name} has ${glad.kills.length} kills and ${glad.souls.length}`;
     leaderboards.appendChild(oneGlad)
 }}
 
