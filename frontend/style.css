@@ -122,6 +122,10 @@ body {
     text-align: center
 }
 
+.buttons:first-of-type {
+    margin-top:40px
+}
+
 #fight {
     background: red;
     color: yellow
