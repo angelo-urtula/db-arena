@@ -10,8 +10,21 @@ body {
     width: 100%;
     position: relative;
     color: white;
-    text-align: center; 
+    text-align: center;
+    overflow: auto;
+    overflow-x: auto; 
 
+}
+
+.cards {
+    text-align: center;
+    border: white solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px blue
 }
 
 
@@ -176,6 +189,8 @@ body {
     margin: 5px;
 }
 
+
+
 .header {
     background-color: grey;
     border: 1px solid black;
@@ -186,4 +201,8 @@ body {
     font-family: OCR A Std, monospace;
     font-weight: 900;
     width: auto;
+    position: sticky;
+    padding: 10px;
+    top: 0
 }
+
