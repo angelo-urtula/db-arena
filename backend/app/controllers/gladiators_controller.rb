@@ -1,4 +1,5 @@
 class GladiatorsController < ApplicationController
+    before_action :set_gladiator, only: [:show, :destroy]
     def index
         gladiators = Gladiator.all
         render json: gladiators.to_json(include: [:kills, :souls])
@@ -17,5 +18,10 @@ class GladiatorsController < ApplicationController
         else
           render json: @gladiator.errors, status: :unprocessable_entity
         end
-      end
+    end
+
+    private
+    def set_gladiator
+      @gladiator = Gladiator.find(params[:id])
+    end
 end
