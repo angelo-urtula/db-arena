@@ -59,10 +59,16 @@ function renderGladiators(allGladiators){
     gladCard.appendChild(gladMotto)
     gladCard.appendChild(gladReason)
     gladCard.appendChild(chooseMe)
-    gladName.textContent = glad.name
-    gladHonor.textContent = `${glad.honor}`
-    gladMotto.textContent = `${glad.motto}`
-    gladReason.textContent = `${glad.reason}`
+    gladName.textContent = `Gladiator Name: ${glad.name}`
+    gladHonor.textContent = `Honor: ${glad.honor}`
+    gladMotto.textContent = `Motto: "${glad.motto}"`
+    gladReason.textContent = `Reason: ${glad.reason}`
+    chooseMe.textContent = `Choose ${glad.name}`
+    chooseMe.addEventListener("click", function(e){
+        fetch(`http://localhost:3000/gladiators/${glad.id}`)
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+    })
 }}
 
 let arena = document.getElementById("arena")
@@ -70,10 +76,20 @@ arena.style.display = "none"
 let fighting = false
 let welcome = document.getElementById("welcome-screen")
 let gladForm = document.getElementById("gladiator")
+let gladSelect = document.getElementById('glad-select')
+let choose1 = document.getElementById('choosePlayer1')
+let choose2 = document.getElementById('choosePlayer2')
 
 document.getElementById("create-gladiator").addEventListener("click", function(e){
     welcome.style.display = "none"
     gladForm.style.display = "block"
+    gladSelect.style.display = "none"
+})
+
+choose1.addEventListener("click", function(e){
+    welcome.style.display = "none"
+    gladForm.style.display = "none"
+    gladSelect.style.display = "block"
 })
 
 const createGlad = document.querySelector(".submit")
