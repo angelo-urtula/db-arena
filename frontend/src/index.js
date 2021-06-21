@@ -25,7 +25,7 @@ function renderKills(allKills){
     for (const kill of arrayKills){
         const oneKill = document.createElement('p');
         oneKill.className = "oneKill";
-        oneKill.innerHTML = `${kill.gladiator.name} shouts ${kill.message}!`;
+        oneKill.textContent = `${kill.gladiator.name} shouts ${kill.message}!`;
         killFeed.appendChild(oneKill)
     }
 }
@@ -40,11 +40,29 @@ function fetchGladiators() {
 
 function renderGladiators(allGladiators){
     const leaderboards = document.querySelector('#leaderboards');
+    const chooseGlad = document.querySelector('#glad-select')
     for (const glad of allGladiators){
     const oneGlad = document.createElement('li');
     oneGlad.className = "oneGlad";
-    oneGlad.innerHTML = `${glad.name} has ${glad.kills.length} kills and ${glad.souls.length}`;
+    oneGlad.textContent = `${glad.name} has ${glad.kills.length} kills and ${glad.souls.length} souls`;
     leaderboards.appendChild(oneGlad)
+    const gladCard = document.createElement('div')
+    chooseGlad.appendChild(gladCard)
+    gladCard.className = "cards"
+    const gladHonor = document.createElement('h2')
+    const gladMotto = document.createElement('h2')
+    const gladReason = document.createElement('h2')
+    const gladName = document.createElement('h2')
+    const chooseMe = document.createElement('BUTTON')
+    gladCard.appendChild(gladName)
+    gladCard.appendChild(gladHonor)
+    gladCard.appendChild(gladMotto)
+    gladCard.appendChild(gladReason)
+    gladCard.appendChild(chooseMe)
+    gladName.textContent = glad.name
+    gladHonor.textContent = `${glad.honor}`
+    gladMotto.textContent = `${glad.motto}`
+    gladReason.textContent = `${glad.reason}`
 }}
 
 let arena = document.getElementById("arena")
@@ -75,7 +93,7 @@ createGlad.addEventListener("click", function(e){
         })
     })
     .then(response => response.json())
-    .then(result => console.log(result));
+    .then(result => alert(`You have successfully made ${result.name}`));
     updateVisuals();
     welcome.style.display = "block";
     gladForm.style.display = "none";}
