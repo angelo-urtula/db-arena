@@ -1,5 +1,15 @@
+document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
-fetchGladiators();
+fetchGladiators();})
+
+function updateVisuals() {
+    let oneKill = document.getElementsByClassName("oneKill")
+    while (oneKill.length > 0) oneKill[0].remove()
+    let oneGlad = document.getElementsByClassName("oneGlad")
+    while (oneGlad.length > 0) oneGlad[0].remove()
+    fetchKills();
+    fetchGladiators()
+}
 
 function fetchKills() {
     return fetch("http://localhost:3000/kills")
@@ -65,9 +75,11 @@ createGlad.addEventListener("click", function(e){
         })
     })
     .then(response => response.json())
-    .then(result => console.log(result))
-    welcome.style.display = "block"
-    gladForm.style.display = "none"}
+    .then(result => console.log(result));
+    updateVisuals();
+    welcome.style.display = "block";
+    gladForm.style.display = "none";}
+    
     )
 
 let fight = {
