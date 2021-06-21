@@ -6,7 +6,9 @@ let choose1 = document.getElementById('choosePlayer1')
 let choose2 = document.getElementById('choosePlayer2')
 let begin = document.getElementById('begin')
 let create = document.getElementById("create-gladiator")
-let fighting = false;
+let startFight = document.getElementById("start-fight")
+let instructions = document.getElementById("instructions")
+let reset = document.getElementById("logout")
 
 document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
@@ -109,9 +111,12 @@ choose1.addEventListener("click", function(e){
     gladSelect.style.display = "block"
 })
 
-document.getElementById("logout").addEventListener("click", function(e){
+reset.addEventListener("click", function(e){
     player1 = null;
     player2 = null;
+    create.style.display ="block"
+    choose1.style.display = "block"
+    begin.style.display = "none"
     let buttons = document.querySelectorAll(".choose")
     for (let x = 0; x< buttons.length; x++)
     buttons[x].style.display="block"
@@ -147,6 +152,23 @@ createGlad.addEventListener("click", function(e){
     
     )
 
+begin.addEventListener("click", function(e){
+    arena.style.display = "block";
+    gladSelect.style.display = "none"
+    begin.style.display ="none"
+    reset.style.display = "none"
+})
+
+
+const spar = {
+    "fighting": false
+}
+startFight.addEventListener("click", function(e){
+    instructions.style.display = "none";
+    spar.fighting = !spar.fighting
+})
+
+
 let fight = {
     "player1": {
         "tag": document.getElementById('player1'),
@@ -179,8 +201,9 @@ let fight = {
     }
 }
 
-if (fighting == true) {
+
 document.addEventListener('keydown', function(e) {
+    if(spar.fighting == true){
     if (e.key === "w"){
         fight.player1.controls.up = true
     }
@@ -211,8 +234,8 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "Enter"){
         fight.player2.controls.swing = true
     }
-    }
-);}
+    }}
+);
 
 document.addEventListener('keyup', function(e) {
     if (e.key === "w"){
