@@ -1,5 +1,4 @@
 let arena = document.getElementById("arena")
-let fighting = false;
 let welcome = document.getElementById("welcome-screen");
 let gladForm = document.getElementById("gladiator")
 let gladSelect = document.getElementById('glad-select')
@@ -7,6 +6,7 @@ let choose1 = document.getElementById('choosePlayer1')
 let choose2 = document.getElementById('choosePlayer2')
 let begin = document.getElementById('begin')
 let create = document.getElementById("create-gladiator")
+let fighting = false;
 
 document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
@@ -103,10 +103,10 @@ function setPlayers(data) {
     }
 };
 
-create.addEventListener("click", function(e){
+choose1.addEventListener("click", function(e){
     welcome.style.display = "none"
-    gladForm.style.display = "block"
-    gladSelect.style.display = "none"
+    gladForm.style.display = "none"
+    gladSelect.style.display = "block"
 })
 
 document.getElementById("logout").addEventListener("click", function(e){
@@ -117,10 +117,10 @@ document.getElementById("logout").addEventListener("click", function(e){
     buttons[x].style.display="block"
 })
 
-choose1.addEventListener("click", function(e){
+create.addEventListener("click", function(e){
     welcome.style.display = "none"
-    gladForm.style.display = "none"
-    gladSelect.style.display = "block"
+    gladForm.style.display = "block"
+    gladSelect.style.display = "none"
 })
 
 const createGlad = document.querySelector(".submit")
