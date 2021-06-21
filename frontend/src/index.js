@@ -65,7 +65,9 @@ createGlad.addEventListener("click", function(e){
         })
     })
     .then(response => response.json())
-    .then(result => console.log(result))}
+    .then(result => console.log(result))
+    welcome.style.display = "block"
+    gladForm.style.display = "none"}
     )
 
 let fight = {
