@@ -3,21 +3,18 @@ body {
     height: 100%
 }
 
-#arena {
-    background: black;
-    height: 600px;
-    width: 1600px;
-    position: relative;
-}
 
-#welcome-screen {
+.game-screen {
     background: black;
     height: 600px;
     width: 100%;
     position: relative;
     color: white;
-    text-align: center;    
+    text-align: center; 
+
 }
+
+
 
 #player1 {
     height: 24px;
@@ -136,6 +133,7 @@ body {
     position: relative;
     color: white;
     text-align: center;
+    display: none
 }
 
 .input-text {
