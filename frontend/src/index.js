@@ -176,11 +176,18 @@ let fight = {
         "angle": 0,
         "x": 200,
         "y": 180,
+        "wx": 100,
+        "wy" : 200,
         "controls": {
             "up": false,
             "down": false,
             "left": false,
             "right": false,
+            "wup": false,
+            "wdown": false,
+            "wleft": false,
+            "wright": false,
+
         }
 
     },
@@ -190,11 +197,17 @@ let fight = {
         "angle": 0,
         "x": 1400,
         "y": 180,
+        "wx": 1500,
+        "wy" : 200,
         "controls": {
             "up": false,
             "down": false,
             "left": false,
             "right": false,
+            "wup": false,
+            "wdown": false,
+            "wleft": false,
+            "wright": false,
         }
     }
 }
@@ -214,7 +227,18 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = true
     }
-   
+    if (e.key === "y"){
+        fight.player1.controls.wup = true
+    }
+    if (e.key === "h"){
+        fight.player1.controls.wdown = true
+    }
+    if (e.key === "g"){
+        fight.player1.controls.wleft = true
+    }
+    if (e.key === "j"){
+        fight.player1.controls.wright = true
+    }
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = true
     }
@@ -227,7 +251,18 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = true
     }
-    
+    if (e.key === "8"){
+        fight.player2.controls.wup = true
+    }
+    if (e.key === "5"){
+        fight.player2.controls.wdown = true
+    }
+    if (e.key === "4"){
+        fight.player2.controls.wleft = true
+    }
+    if (e.key === "6"){
+        fight.player2.controls.wright = true
+    }
     }}
 );
 
@@ -244,7 +279,18 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = false
     }
-   
+    if (e.key === "y"){
+        fight.player1.controls.wup = false
+    }
+    if (e.key === "h"){
+        fight.player1.controls.wdown = false
+    }
+    if (e.key === "g"){
+        fight.player1.controls.wleft = false
+    }
+    if (e.key === "j"){
+        fight.player1.controls.wright = false
+    }
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = false
     }
@@ -257,7 +303,18 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = false
     }
-   
+    if (e.key === "8"){
+        fight.player2.controls.wup = false
+    }
+    if (e.key === "5"){
+        fight.player2.controls.wdown = false
+    }
+    if (e.key === "4"){
+        fight.player2.controls.wleft = false
+    }
+    if (e.key === "6"){
+        fight.player2.controls.wright = false
+    }
     }
 );
 
@@ -275,7 +332,18 @@ function loop(){
     if (fight.player1.controls.right == true){
         fight.player1.x = Math.min(fight.player1.x + 3, 1555)
     }
-    
+    if (fight.player1.controls.wup == true){
+        fight.player1.wy = Math.min(fight.player1.wy + 3, 550)
+    }
+    if (fight.player1.controls.wdown == true){
+        fight.player1.wy = Math.max(fight.player1.wy - 3, 20)
+    }
+    if (fight.player1.controls.wleft == true){
+        fight.player1.wx = Math.max(fight.player1.wx - 3, 20)
+    }
+    if (fight.player1.controls.wright == true){
+        fight.player1.wx = Math.min(fight.player1.wx + 3, 1555)
+    }
     if (fight.player2.controls.up == true){
         fight.player2.y = Math.min(fight.player2.y + 3, 550)
     }
@@ -288,11 +356,28 @@ function loop(){
     if (fight.player2.controls.right == true){
         fight.player2.x = Math.min(fight.player2.x + 3, 1555)
     }
+    if (fight.player2.controls.wup == true){
+        fight.player2.wy = Math.min(fight.player2.wy + 3, 550)
+    }
+    if (fight.player2.controls.wdown == true){
+        fight.player2.wy = Math.max(fight.player2.wy - 3, 20)
+    }
+    if (fight.player2.controls.wleft == true){
+        fight.player2.wx = Math.max(fight.player2.wx - 3, 20)
+    }
+    if (fight.player2.controls.wright == true){
+        fight.player2.wx = Math.min(fight.player2.wx + 3, 1555)
+    }
     
+
     fight.player1.tag.style.bottom = fight.player1.y+'px'
     fight.player1.tag.style.left = fight.player1.x+'px'
+    fight.player1.weapon.style.bottom = fight.player1.wy+'px'
+    fight.player1.weapon.style.left = fight.player1.wx+'px'
     fight.player2.tag.style.bottom = fight.player2.y+'px'
     fight.player2.tag.style.left = fight.player2.x+'px'
+    fight.player2.weapon.style.bottom = fight.player2.wy+'px'
+    fight.player2.weapon.style.left = fight.player2.wx+'px'
     window.requestAnimationFrame(loop)
     detect()
 }
