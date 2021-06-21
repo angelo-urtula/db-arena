@@ -16,6 +16,14 @@ body {
 
 }
 
+#glad-select {
+    display: none
+}
+
+#arena {
+    display: none
+}
+
 .cards {
     text-align: center;
     border: white solid 1px;
