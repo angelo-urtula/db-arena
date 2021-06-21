@@ -14,7 +14,7 @@ class GladiatorsController < ApplicationController
         @gladiator = Gladiator.new(gladiator_params)
     
         if @gladiator.save
-          render json: @gladiator, status: :created, location: @gladiator
+          render json: @gladiator, status: :created
         else
           render json: @gladiator.errors, status: :unprocessable_entity
         end
@@ -23,5 +23,9 @@ class GladiatorsController < ApplicationController
     private
     def set_gladiator
       @gladiator = Gladiator.find(params[:id])
+    end
+
+    def gladiator_params
+        params.require(:gladiator).permit(:name, :motto, :honor, :reason)
     end
 end
