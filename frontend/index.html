@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
 <body>
-    <div id = "welcome-screen" class="game-screen">
+    <div id = "welcome-screen" class="game-screen" style="display: none">
         <h1>WELCOME TO THE THUNDER DOME!!!</h1>
         <h2>Fight for your right to immortalize yourself and your words in the DATABASE ARENA!</h2>
         <h3>Pit yourselves against your fellow database gladiators to rack up KILLS and earn SOULS!<br>
@@ -15,7 +15,7 @@
         from the DATABASE ARENA, along with all of your kill messages!</h3>
     </div>
 
-    <div id="gladiator">
+    <div id="gladiator" class="game-screen">
         <form class="new-gladiator">
             <h3>Make your Gladiator!</h3>
             <input
@@ -58,7 +58,10 @@
                 />
         </form>
     </div>
-    <div id="arena" style="display: none">
+    <div id="glad-select" class="game-screen">
+
+    </div>
+    <div id="arena" class="game-screen">
         <div id="player1">
             <div id="player1Weapon">
 
@@ -73,11 +76,11 @@
     <div id="kills-and-leaderboard">
         <div id="button-list">
             <header class="header">Menu</header>
-            <button id="create-gladiator" class="buttons">Create your GLADIATOR</button>
-            <button id="log-in" class="buttons">Log In</button>
-            <button id="logout" class="buttons" style="display: none">Log Out</button>
-            <button id="edit profile" class="buttons" style="display: none">Edit your Gladiator and Messages</button>
-            <button id="fight" class="buttons" style="display: none">INTO THE ARENA!</button>
+            <button id="create-gladiator" class="buttons">Create a gladiator!</button>
+            <button id="choosePlayer1" class="buttons">Choose Player 1</button>
+            <button id="choosePlayer2" class="buttons">Choose Player 2</button>
+            <button id="logout" class="buttons">Reset Player Selections</button>
+            <button id="fight" class="buttons">INTO THE ARENA!</button>
         </div>
         <div id="killfeed">
             <header class="header">Killfeed</header>
