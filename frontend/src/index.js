@@ -1,3 +1,13 @@
+let arena = document.getElementById("arena")
+let fighting = false;
+let welcome = document.getElementById("welcome-screen");
+let gladForm = document.getElementById("gladiator")
+let gladSelect = document.getElementById('glad-select')
+let choose1 = document.getElementById('choosePlayer1')
+let choose2 = document.getElementById('choosePlayer2')
+let begin = document.getElementById('begin')
+let create = document.getElementById("create-gladiator")
+
 document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
 fetchGladiators();})
@@ -7,6 +17,8 @@ function updateVisuals() {
     while (oneKill.length > 0) oneKill[0].remove()
     let oneGlad = document.getElementsByClassName("oneGlad")
     while (oneGlad.length > 0) oneGlad[0].remove()
+    let cards = document.getElementsByClassName("cards")
+    while (cards.length > 0) cards[0].remove()
     fetchKills();
     fetchGladiators()
 }
@@ -54,6 +66,8 @@ function renderGladiators(allGladiators){
     const gladReason = document.createElement('h2')
     const gladName = document.createElement('h2')
     const chooseMe = document.createElement('BUTTON')
+    chooseMe.setAttribute('id',`chooser${glad.id}`)
+    chooseMe.setAttribute('class', 'choose')
     gladCard.appendChild(gladName)
     gladCard.appendChild(gladHonor)
     gladCard.appendChild(gladMotto)
@@ -67,23 +81,40 @@ function renderGladiators(allGladiators){
     chooseMe.addEventListener("click", function(e){
         fetch(`http://localhost:3000/gladiators/${glad.id}`)
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(json => setPlayers(json))
+
     })
 }}
+let player1;
+let player2;
 
-let arena = document.getElementById("arena")
-arena.style.display = "none"
-let fighting = false
-let welcome = document.getElementById("welcome-screen")
-let gladForm = document.getElementById("gladiator")
-let gladSelect = document.getElementById('glad-select')
-let choose1 = document.getElementById('choosePlayer1')
-let choose2 = document.getElementById('choosePlayer2')
+function setPlayers(data) {
+    if (!player1) {
+        player1 = data
+        document.getElementById(`chooser${player1.id}`).style.display = "none"
+        choose1.style.display = "none"
+        create.style.display = "none"
+        alert("Player 2 Chooses Next")
+    } else {
+        player2 = data
+        document.getElementById(`chooser${player2.id}`).style.display = "none"
+        begin.style.display = "block"
+        create.style.display = "none"
+    }
+};
 
-document.getElementById("create-gladiator").addEventListener("click", function(e){
+create.addEventListener("click", function(e){
     welcome.style.display = "none"
     gladForm.style.display = "block"
     gladSelect.style.display = "none"
+})
+
+document.getElementById("logout").addEventListener("click", function(e){
+    player1 = null;
+    player2 = null;
+    let buttons = document.querySelectorAll(".choose")
+    for (let x = 0; x< buttons.length; x++)
+    buttons[x].style.display="block"
 })
 
 choose1.addEventListener("click", function(e){
@@ -148,6 +179,7 @@ let fight = {
     }
 }
 
+if (fighting == true) {
 document.addEventListener('keydown', function(e) {
     if (e.key === "w"){
         fight.player1.controls.up = true
@@ -180,7 +212,7 @@ document.addEventListener('keydown', function(e) {
         fight.player2.controls.swing = true
     }
     }
-);
+);}
 
 document.addEventListener('keyup', function(e) {
     if (e.key === "w"){
@@ -216,7 +248,7 @@ document.addEventListener('keyup', function(e) {
     }
 );
 
-while (fighting == true) {
+
 function loop(){
     if (fight.player1.controls.up == true){
         fight.player1.y = Math.min(fight.player1.y + 3, 550)
@@ -274,4 +306,3 @@ if (distance < radiiSum)   {
     document.getElementById("player2").style.left = "";
     document.getElementById("player2").style.bottom = "";
 }}
-}
