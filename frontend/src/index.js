@@ -181,7 +181,6 @@ let fight = {
             "down": false,
             "left": false,
             "right": false,
-            "swing": false
         }
 
     },
@@ -196,7 +195,6 @@ let fight = {
             "down": false,
             "left": false,
             "right": false,
-            "swing": false
         }
     }
 }
@@ -216,9 +214,7 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = true
     }
-    if (e.key === " "){
-        fight.player1.controls.swing = true
-    }
+   
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = true
     }
@@ -231,9 +227,7 @@ document.addEventListener('keydown', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = true
     }
-    if (e.key === "Enter"){
-        fight.player2.controls.swing = true
-    }
+    
     }}
 );
 
@@ -250,9 +244,7 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "d"){
         fight.player1.controls.right = false
     }
-    if (e.key === " "){
-        fight.player1.controls.swing = false
-    }
+   
     if (e.key === "ArrowUp"){
         fight.player2.controls.up = false
     }
@@ -265,9 +257,7 @@ document.addEventListener('keyup', function(e) {
     if (e.key === "ArrowRight"){
         fight.player2.controls.right = false
     }
-    if (e.key === "Enter"){
-        fight.player2.controls.swing = false
-    }
+   
     }
 );
 
@@ -285,11 +275,7 @@ function loop(){
     if (fight.player1.controls.right == true){
         fight.player1.x = Math.min(fight.player1.x + 3, 1555)
     }
-    if (fight.player1.controls.swing == true ){
-        fight.player1.angle += 1
-	    fight.player1.tag.style.transform = `rotate(${fight.player1.angle}deg)`;
-        fight.player1.weapon.style.transform = `rotate(-${fight.player1.angle}deg)`
-    }
+    
     if (fight.player2.controls.up == true){
         fight.player2.y = Math.min(fight.player2.y + 3, 550)
     }
@@ -302,11 +288,7 @@ function loop(){
     if (fight.player2.controls.right == true){
         fight.player2.x = Math.min(fight.player2.x + 3, 1555)
     }
-    if (fight.player2.controls.swing == true ){
-        fight.player2.angle -= 1
-	    fight.player2.tag.style.transform = `rotate(${fight.player2.angle}deg)`;
-        fight.player2.weapon.style.transform = `rotate(-${fight.player2.angle}deg)`}
-
+    
     fight.player1.tag.style.bottom = fight.player1.y+'px'
     fight.player1.tag.style.left = fight.player1.x+'px'
     fight.player2.tag.style.bottom = fight.player2.y+'px'
@@ -328,4 +310,8 @@ if (distance < radiiSum)   {
     document.getElementById("player1").style.bottom = "";
     document.getElementById("player2").style.left = "";
     document.getElementById("player2").style.bottom = "";
+    fight.player1.y=180
+    fight.player1.x=200
+    fight.player2.y=180
+    fight.player2.x=1400
 }}
