@@ -197,7 +197,7 @@ let fight = {
         "angle": 0,
         "x": 1400,
         "y": 180,
-        "wx": 1500,
+        "wx": 300,
         "wy" : 200,
         "controls": {
             "up": false,
@@ -379,18 +379,22 @@ function loop(){
     fight.player2.weapon.style.bottom = fight.player2.wy+'px'
     fight.player2.weapon.style.left = fight.player2.wx+'px'
     window.requestAnimationFrame(loop)
-    detect()
+    player1wins()
+    player2wins()
 }
 window.requestAnimationFrame(loop)
 
-function detect() {
-let dx = parseInt(getComputedStyle(fight.player1.tag).left) - parseInt(getComputedStyle(fight.player2.tag).left);
-let dy = parseInt(getComputedStyle(fight.player1.tag).bottom) - parseInt(getComputedStyle(fight.player2.tag).bottom);
+function player1wins() {
+let dx = parseInt(getComputedStyle(fight.player1.weapon).left) - parseInt(getComputedStyle(fight.player2.tag).left);
+let dy = parseInt(getComputedStyle(fight.player1.weapon).bottom) - parseInt(getComputedStyle(fight.player2.tag).bottom);
 let distance = Math.sqrt(dx * dx + dy * dy);
-let radiiSum = 24
+let adx = parseInt(getComputedStyle(fight.player2.weapon).left) - parseInt(getComputedStyle(fight.player1.tag).left);
+let ady = parseInt(getComputedStyle(fight.player2.weapon).bottom) - parseInt(getComputedStyle(fight.player1.tag).bottom);
+let adistance = Math.sqrt(adx * adx + ady * ady);
+let radiiSum = 17
 
 
-if (distance < radiiSum)   {
+if (distance < radiiSum || adistance < radiiSum)   {
     document.getElementById("player1").style.left = "";
     document.getElementById("player1").style.bottom = "";
     document.getElementById("player2").style.left = "";
@@ -400,3 +404,21 @@ if (distance < radiiSum)   {
     fight.player2.y=180
     fight.player2.x=1400
 }}
+
+function player2wins() {
+    let dx = parseInt(getComputedStyle(fight.player2.weapon).left) - parseInt(getComputedStyle(fight.player1.tag).left);
+    let dy = parseInt(getComputedStyle(fight.player2.weapon).bottom) - parseInt(getComputedStyle(fight.player1.tag).bottom);
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    let radiiSum = 17
+    
+    
+    if (distance < radiiSum)   {
+        document.getElementById("player1").style.left = "";
+        document.getElementById("player1").style.bottom = "";
+        document.getElementById("player2").style.left = "";
+        document.getElementById("player2").style.bottom = "";
+        fight.player1.y=180
+        fight.player1.x=200
+        fight.player2.y=180
+        fight.player2.x=1400
+    }}
