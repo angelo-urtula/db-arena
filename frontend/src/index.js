@@ -79,7 +79,7 @@ function renderGladiators(allGladiators){
     gladHonor.textContent = `Honor: ${glad.honor}`
     gladMotto.textContent = `Motto: "${glad.motto}"`
     gladReason.textContent = `Reason: ${glad.reason}`
-    chooseMe.textContent = `Choose ${glad.name}`
+    chooseMe.textContent = `Select ${glad.name}`
     chooseMe.addEventListener("click", function(e){
         fetch(`http://localhost:3000/gladiators/${glad.id}`)
         .then(resp => resp.json())
