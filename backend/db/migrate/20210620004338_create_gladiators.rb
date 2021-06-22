@@ -5,6 +5,7 @@ class CreateGladiators < ActiveRecord::Migration[6.1]
       t.string :motto
       t.string :reason
       t.string :honor
+      t.integer :souls, :default => 3
 
       t.timestamps
     end

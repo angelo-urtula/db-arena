@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_20_004720) do
+ActiveRecord::Schema.define(version: 2021_06_20_004443) do
 
   create_table "gladiators", force: :cascade do |t|
     t.string "name"
     t.string "motto"
     t.string "reason"
     t.string "honor"
+    t.integer "souls", default: 3
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,13 +30,5 @@ ActiveRecord::Schema.define(version: 2021_06_20_004720) do
     t.index ["gladiator_id"], name: "index_kills_on_gladiator_id"
   end
 
-  create_table "souls", force: :cascade do |t|
-    t.integer "gladiator_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["gladiator_id"], name: "index_souls_on_gladiator_id"
-  end
-
   add_foreign_key "kills", "gladiators", on_delete: :cascade
-  add_foreign_key "souls", "gladiators", on_delete: :cascade
 end

@@ -404,7 +404,7 @@ if (distance < radiiSum || adistance < radiiSum)   {
 }
 if (distance < radiiSum){
     player1wins()
-} else if (adistance <radiiSum){
+} else if (adistance < radiiSum){
     player2wins()
 }
 }

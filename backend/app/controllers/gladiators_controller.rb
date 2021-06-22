@@ -2,7 +2,7 @@ class GladiatorsController < ApplicationController
     before_action :set_gladiator, only: [:show, :destroy]
     def index
         gladiators = Gladiator.all
-        render json: gladiators.to_json(include: [:kills, :souls])
+        render json: gladiators.to_json(include: [:kills])
     end
 
     def show
@@ -12,7 +12,7 @@ class GladiatorsController < ApplicationController
      
     def create
         @gladiator = Gladiator.new(gladiator_params)
-    
+
         if @gladiator.save
           render json: @gladiator, status: :created
         else
@@ -26,6 +26,6 @@ class GladiatorsController < ApplicationController
     end
 
     def gladiator_params
-        params.require(:gladiator).permit(:name, :motto, :honor, :reason)
+        params.require(:gladiator).permit(:name, :motto, :honor, :reason, :souls)
     end
 end
