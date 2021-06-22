@@ -173,7 +173,6 @@ let fight = {
     "player1": {
         "tag": document.getElementById('player1'),
         "weapon": document.getElementById('player1Weapon'),
-        "angle": 0,
         "x": 200,
         "y": 180,
         "wx": 100,
@@ -194,10 +193,9 @@ let fight = {
     "player2": {
         "tag": document.getElementById('player2'),
         "weapon": document.getElementById('player2Weapon'),
-        "angle": 0,
         "x": 1400,
         "y": 180,
-        "wx": 300,
+        "wx": 1500,
         "wy" : 200,
         "controls": {
             "up": false,
@@ -379,12 +377,11 @@ function loop(){
     fight.player2.weapon.style.bottom = fight.player2.wy+'px'
     fight.player2.weapon.style.left = fight.player2.wx+'px'
     window.requestAnimationFrame(loop)
-    player1wins()
-    player2wins()
+    whoWins()
 }
 window.requestAnimationFrame(loop)
 
-function player1wins() {
+function whoWins() {
 let dx = parseInt(getComputedStyle(fight.player1.weapon).left) - parseInt(getComputedStyle(fight.player2.tag).left);
 let dy = parseInt(getComputedStyle(fight.player1.weapon).bottom) - parseInt(getComputedStyle(fight.player2.tag).bottom);
 let distance = Math.sqrt(dx * dx + dy * dy);
@@ -395,30 +392,25 @@ let radiiSum = 17
 
 
 if (distance < radiiSum || adistance < radiiSum)   {
-    document.getElementById("player1").style.left = "";
-    document.getElementById("player1").style.bottom = "";
-    document.getElementById("player2").style.left = "";
-    document.getElementById("player2").style.bottom = "";
     fight.player1.y=180
     fight.player1.x=200
+    fight.player1.wy=200
+    fight.player1.wx=100
     fight.player2.y=180
     fight.player2.x=1400
-}}
+    fight.player2.wy=200
+    fight.player2.wx=1500
+    arena.style.display = "none"
+}
+if (distance < radiiSum){
+    player1wins()
+} else if (adistance <radiiSum){
+    player2wins()
+}
+}
 
-function player2wins() {
-    let dx = parseInt(getComputedStyle(fight.player2.weapon).left) - parseInt(getComputedStyle(fight.player1.tag).left);
-    let dy = parseInt(getComputedStyle(fight.player2.weapon).bottom) - parseInt(getComputedStyle(fight.player1.tag).bottom);
-    let distance = Math.sqrt(dx * dx + dy * dy);
-    let radiiSum = 17
+function player1wins(){
     
-    
-    if (distance < radiiSum)   {
-        document.getElementById("player1").style.left = "";
-        document.getElementById("player1").style.bottom = "";
-        document.getElementById("player2").style.left = "";
-        document.getElementById("player2").style.bottom = "";
-        fight.player1.y=180
-        fight.player1.x=200
-        fight.player2.y=180
-        fight.player2.x=1400
-    }}
+}
+
+function player2wins(){}
