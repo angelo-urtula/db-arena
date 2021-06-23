@@ -4,7 +4,9 @@ body {
     font-family: OCR A Std, monospace;
 }
 
-
+#welcome-screen{
+    display: block
+}
 .game-screen {
     background: black;
     height: 600px;
@@ -13,28 +15,13 @@ body {
     color: white;
     text-align: center;
     overflow: auto;
-    overflow-x: auto; 
+    overflow-x: auto;
+    display: none 
 
 }
 
 #player2controls {
     color: pink;
-}
-
-#glad-select {
-    display: none
-}
-
-#arena {
-    display: block
-}
-
-#win-screen {
-    display: none
-}
-
-#versus {
-    display: none
 }
 
 .cards {
