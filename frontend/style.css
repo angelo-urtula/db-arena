@@ -17,15 +17,23 @@ body {
 
 }
 
+#player2controls {
+    color: pink;
+}
+
 #glad-select {
     display: none
 }
 
 #arena {
-    display: none
+    display: block
 }
 
 #win-screen {
+    display: none
+}
+
+#versus {
     display: none
 }
 

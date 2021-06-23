@@ -10,6 +10,10 @@ let startFight = document.getElementById("start-fight")
 let instructions = document.getElementById("instructions")
 let reset = document.getElementById("logout")
 let congrats = document.getElementById("win-screen")
+let versus = document.getElementById("versus")
+let title1 = document.getElementById("player1title")
+let title2 = document.getElementById("player2title")
+
 
 document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
@@ -103,6 +107,10 @@ function setPlayers(data) {
         document.getElementById(`chooser${player2.id}`).style.display = "none"
         begin.style.display = "block"
         create.style.display = "none"
+        versus.style.display = "block"
+        gladSelect.style.display ="none"
+        title1.textContent = `Player 1: ${player1.name}`
+        title2.textContent = `Player 2: ${player2.name}`
     }
 };
 
@@ -119,8 +127,10 @@ reset.addEventListener("click", function(e){
     choose1.style.display = "block"
     begin.style.display = "none"
     let buttons = document.querySelectorAll(".choose")
+    gladSelect.style.display ="block"
     for (let x = 0; x< buttons.length; x++)
     buttons[x].style.display="block"
+    versus.style.display="none"
 })
 
 create.addEventListener("click", function(e){
@@ -158,6 +168,7 @@ begin.addEventListener("click", function(e){
     gladSelect.style.display = "none"
     begin.style.display ="none"
     reset.style.display = "none"
+    versus.style.display = "none"
 })
 
 

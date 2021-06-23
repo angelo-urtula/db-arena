@@ -62,8 +62,29 @@
     <div id="glad-select" class="game-screen">
 
     </div>
+
+    <div id="versus" class="game-screen">
+        <h1 id="player1title">
+
+        </h1>
+        <h1>VS.</h1>
+        <h1 id="player2title">
+
+        </h1>
+        <button id="begin" class="buttons" style="display:none">INTO THE ARENA!</button>
+    </div>
     <div id="arena" class="game-screen">
-        <div id ="instructions"> The
+        <div id ="instructions"> 
+            <h2>
+                Player 1 controls the white circles, while Player 2 controls the two pink circles. 
+            The larger circles represent each respective player's body, while their smaller circles are known as DEATH CIRCLES. 
+            Each player needs to control their death circle in an attempt to make contact with the other player's body while 
+            keeping their own body safe from the enemy's death circle.<br><br>
+            Player 1 Death Circle Controls: W = up, A = left, S = down, D = right<br>
+            Player 1 Body Controls: Y = up, G = left, H = down, J = right<br><br>
+                <h2 id="player2controls">Player 2 Death Circle Controls: ArrowUp = up, ArrowLeft = left, ArrowDown = down, ArrowRight = right<br>
+                Player 2 Body Controls: Num8 = up, Num4 = left, Num5 = down, Num6 = right<br></h2>
+            </h2>
             <button id="start-fight" class="buttons">START FIGHT!</button>
         </div>
         <div id="player1">
@@ -81,7 +102,7 @@
     </div>
     <div id="win-screen" class="game-screen">
         <form class="new-gladiator">
-            
+
             <input
                 type="submit"
                 name="submit"
