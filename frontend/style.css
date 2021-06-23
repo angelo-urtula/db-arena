@@ -20,6 +20,10 @@ body {
 
 }
 
+#logout {
+    display: none
+}
+
 #player2controls {
     color: pink;
 }
