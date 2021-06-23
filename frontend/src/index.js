@@ -3,7 +3,6 @@ let welcome = document.getElementById("welcome-screen");
 let gladForm = document.getElementById("gladiator")
 let gladSelect = document.getElementById('glad-select')
 let choose1 = document.getElementById('choosePlayer1')
-let choose2 = document.getElementById('choosePlayer2')
 let begin = document.getElementById('begin')
 let create = document.getElementById("create-gladiator")
 let startFight = document.getElementById("start-fight")
@@ -451,8 +450,8 @@ function victory(winner, loser){
           congrats.style.display = "block"
 
           document.getElementById("kill-submit").addEventListener("click", function(e){
-              e.preventDefault()
-            fetch("http://localhost:3000/kills", {
+              e.preventDefault();
+                fetch("http://localhost:3000/kills", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -462,7 +461,13 @@ function victory(winner, loser){
                     "message": document.querySelector('form.new-kill input[name="message"]').value,
                     "gladiator_id": winner.id
                 })
-            })
+            });
+            updateVisuals()
+            congrats.style.display = "none"
+            welcome.style.display = "block"
+            create.style.display = "block"
+            choose1.style.display ="block"
+            reset.style.display = "block"
         })
         }
 
