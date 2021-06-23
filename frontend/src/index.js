@@ -436,6 +436,7 @@ function victory(winner, loser){
           })
           .then(resp => resp.json())
           .then(json => console.log(json))
+          congrats.style.display = "block"
         }
         
         
