@@ -405,25 +405,37 @@ if (distance < radiiSum || adistance < radiiSum)   {
     spar.fighting = !spar.fighting
 }
 if (distance < radiiSum){
-    winner.player1 = !winner.player1
+    victory(player1, player2)
 } else if (adistance < radiiSum){
-    winner.player2 = !winner.player2
+    victory(player2, player1)
 }
-}
-let winner = {
-    "player1": false,
-    "player2": false
 }
 
-document.getElementById("testbutton").addEventListener("click", () => 
-    fetch(`http://localhost:3000/gladiators/1`, {
+function victory(winner, loser){
+    fetch(`http://localhost:3000/gladiators/${winner.id}}`, {
             method: "PATCH",
             headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
         body: JSON.stringify({
-          "souls": 7
+          "souls": winner.souls += 1
         })
           })
-)
+          .then(resp => resp.json())
+          .then(json => console.log(json));
+    fetch(`http://localhost:3000/gladiators/${loser.id}}`, {
+            method: "PATCH",
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          "souls": loser.souls -= 1
+        })
+          })
+          .then(resp => resp.json())
+          .then(json => console.log(json))
+        }
+        
+        
