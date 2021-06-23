@@ -446,8 +446,32 @@ function victory(winner, loser){
         })
           })
           .then(resp => resp.json())
-          .then(json => console.log(json))
+          .then(json => checkSouls(json));
+          document.getElementById("displaywinner").textContent = `FATE HAS DEEMED ${winner.name} THE WINNER OF THIS MATCH! As thus, they have the right to enter their words into the database!!`
           congrats.style.display = "block"
+
+          document.getElementById("kill-submit").addEventListener("click", function(e){
+              e.preventDefault()
+            fetch("http://localhost:3000/kills", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    "message": document.querySelector('form.new-kill input[name="message"]').value,
+                    "gladiator_id": winner.id
+                })
+            })
+        })
         }
+
+function checkSouls(loser) {
+    if (loser.souls == 0){
+        fetch(`http://localhost:3000/gladiators/${loser.id}}`,{
+            method: 'DELETE'
+        })
+    }
+}
         
         
