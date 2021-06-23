@@ -19,15 +19,15 @@ fetchKills();
 fetchGladiators();})
 
 function updateVisuals() {
-    let oneKill = document.getElementsByClassName("oneKill")
-    while (oneKill.length > 0) oneKill[0].remove()
-    let oneGlad = document.getElementsByClassName("oneGlad")
-    while (oneGlad.length > 0) oneGlad[0].remove()
-    let cards = document.getElementsByClassName("cards")
-    while (cards.length > 0) cards[0].remove()
-    fetchKills();
-    fetchGladiators()
-}
+        let oneKill = document.getElementsByClassName("oneKill")
+        while (oneKill.length > 0) oneKill[0].remove()
+        let oneGlad = document.getElementsByClassName("oneGlad")
+        while (oneGlad.length > 0) oneGlad[0].remove()
+        let cards = document.getElementsByClassName("cards")
+        while (cards.length > 0) cards[0].remove()
+        fetchKills();
+        fetchGladiators()}
+
 
 function fetchKills() {
     return fetch("http://localhost:3000/kills")
@@ -117,6 +117,7 @@ choose1.addEventListener("click", function(e){
     welcome.style.display = "none"
     gladForm.style.display = "none"
     gladSelect.style.display = "block"
+    reset.style.display = "block"
 })
 
 reset.addEventListener("click", function(e){
@@ -136,6 +137,7 @@ create.addEventListener("click", function(e){
     welcome.style.display = "none"
     gladForm.style.display = "block"
     gladSelect.style.display = "none"
+    reset.style.display = "none"
 })
 
 const createGlad = document.querySelector("#submit-glad")
@@ -156,10 +158,9 @@ createGlad.addEventListener("click", function(e){
     })
     .then(response => response.json())
     .then(result => alert(`You have successfully made ${result.name}`));
-    updateVisuals();
     welcome.style.display = "block";
-    gladForm.style.display = "none";}
-    
+    gladForm.style.display = "none";
+    setTimeout(updateVisuals, 1000)}    
     )
 
 begin.addEventListener("click", function(e){
@@ -462,12 +463,12 @@ function victory(winner, loser){
                     "gladiator_id": winner.id
                 })
             });
-            updateVisuals()
             congrats.style.display = "none"
             welcome.style.display = "block"
             create.style.display = "block"
             choose1.style.display ="block"
             reset.style.display = "block"
+            setTimeout(updateVisuals, 1000)
         })
         }
 
