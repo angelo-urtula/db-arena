@@ -9,6 +9,7 @@ let create = document.getElementById("create-gladiator")
 let startFight = document.getElementById("start-fight")
 let instructions = document.getElementById("instructions")
 let reset = document.getElementById("logout")
+let congrats = document.getElementById("win-screen")
 
 document.addEventListener("DOMContentLoaded", () => {
 fetchKills();
@@ -58,7 +59,7 @@ function renderGladiators(allGladiators){
     for (const glad of allGladiators){
     const oneGlad = document.createElement('li');
     oneGlad.className = "oneGlad";
-    oneGlad.textContent = `${glad.name} has ${glad.kills.length} kills and ${glad.souls.length} souls`;
+    oneGlad.textContent = `${glad.name} has ${glad.kills.length} kills and ${glad.souls} souls`;
     leaderboards.appendChild(oneGlad)
     const gladCard = document.createElement('div')
     chooseGlad.appendChild(gladCard)
@@ -128,7 +129,7 @@ create.addEventListener("click", function(e){
     gladSelect.style.display = "none"
 })
 
-const createGlad = document.querySelector(".submit")
+const createGlad = document.querySelector("#submit-glad")
 createGlad.addEventListener("click", function(e){
     e.preventDefault();
     fetch("http://localhost:3000/gladiators", {
@@ -401,16 +402,28 @@ if (distance < radiiSum || adistance < radiiSum)   {
     fight.player2.wy=200
     fight.player2.wx=1500
     arena.style.display = "none"
+    spar.fighting = !spar.fighting
 }
 if (distance < radiiSum){
-    player1wins()
+    winner.player1 = !winner.player1
 } else if (adistance < radiiSum){
-    player2wins()
+    winner.player2 = !winner.player2
 }
+}
+let winner = {
+    "player1": false,
+    "player2": false
 }
 
-function player1wins(){
-    
-}
-
-function player2wins(){}
+document.getElementById("testbutton").addEventListener("click", () => 
+    fetch(`http://localhost:3000/gladiators/1`, {
+            method: "PATCH",
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          "souls": 7
+        })
+          })
+)
